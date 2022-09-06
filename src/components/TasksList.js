@@ -16,7 +16,12 @@ function TasksList() {
     }
 
     const takeTaskCompled = (id) => {
-        const tasksUpdate = tasks.map(task => {
+
+        const unCompledTasks = tasks.filter(task => task.id !== id);
+        const CompledTasks = tasks.filter(task => task.id === id);
+
+        const TasksUpdate =[...unCompledTasks, ...CompledTasks];
+        const tasksUpdate = TasksUpdate.map(task => {
             if(id===task.id){
                 task.compled = !task.compled;
             }
