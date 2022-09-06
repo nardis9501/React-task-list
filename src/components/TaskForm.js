@@ -19,6 +19,10 @@ function TaskForm( {onSubmitTask} ) {
             text: input,
             compled: false
         }
+        const inputDOM =document.getElementById('task-input');
+        inputDOM.value='';
+        inputDOM.focus();
+        setInput('');
         {onSubmitTask(newTask)};
     }
     
@@ -27,7 +31,7 @@ function TaskForm( {onSubmitTask} ) {
             <button className="task-button">
                 Add Task
             </button>
-            <input type="text" className="task-input" 
+            <input id='task-input' type="text" className="task-input" 
             placeholder="Write a new task" name="text"
             onChange={takeChangeInput} />
 
